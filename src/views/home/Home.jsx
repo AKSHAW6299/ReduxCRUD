@@ -34,69 +34,79 @@ const HomePage = () => {
         <section id="features" className="mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Create Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-              <h2 className="text-xl font-semibold mb-4">Create (POST Api)</h2>
-              <p className="text-gray-700">
-                Create a new resource by sending a POST request. Perfect for adding new entries to the database.
-              </p>
-              <div className="mt-4">
-                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
-                  Test Create
-                </button>
+            <Link to={'/create'}>
+              <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
+                <h2 className="text-xl font-semibold mb-4">Create (POST Api)</h2>
+                <p className="text-gray-700">
+                  Create a new resource by sending a POST request. Perfect for adding new entries to the database.
+                </p>
+                <div className="mt-4">
+                  <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded">
+                    Test Create
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Read Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-              <h2 className="text-xl font-semibold mb-4">Read (GET Api)</h2>
-              <p className="text-gray-700">
-                Retrieve and display resources using GET requests. Get instant access to your data.
-              </p>
-              <div className="mt-4">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-                  Test Read
-                </button>
+            <Link to={'/read'}>
+              <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
+                <h2 className="text-xl font-semibold mb-4">Read (GET Api)</h2>
+                <p className="text-gray-700">
+                  Retrieve and display resources using GET requests. Get instant access to your data.
+                </p>
+                <div className="mt-4">
+                  <button className="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded">
+                    Test Read
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Update Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-              <h2 className="text-xl font-semibold mb-4">Update (PUT Api)</h2>
-              <p className="text-gray-700">
-                Fully update an existing resource with a PUT request. Ensure data remains accurate.
-              </p>
-              <div className="mt-4">
-                <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded">
-                  Test Update
-                </button>
+            <Link to={'/putOperation'}>
+              <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
+                <h2 className="text-xl font-semibold mb-4">Update (PUT Api)</h2>
+                <p className="text-gray-700">
+                  Fully update an existing resource with a PUT request. Ensure data remains accurate.
+                </p>
+                <div className="mt-4">
+                  <button className="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded">
+                    Test Update
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Patch Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-              <h2 className="text-xl font-semibold mb-4">Patch (PATCH Api)</h2>
-              <p className="text-gray-700">
-                Apply partial modifications to a resource using PATCH. Quick and efficient adjustments.
-              </p>
-              <div className="mt-4">
-                <button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded">
-                  Test Patch
-                </button>
+            <Link to={'/patchOperation'}>
+              <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
+                <h2 className="text-xl font-semibold mb-4">Update (PATCH Api)</h2>
+                <p className="text-gray-700">
+                  Apply partial modifications to a resource using PATCH. Quick and efficient adjustments.
+                </p>
+                <div className="mt-4">
+                  <button className="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded">
+                    Test Patch
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
 
             {/* Delete Card */}
-            <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
-              <h2 className="text-xl font-semibold mb-4">Delete (DELETE Api)</h2>
-              <p className="text-gray-700">
-                Remove unwanted resources with a DELETE request. Clean and maintain your database.
-              </p>
-              <div className="mt-4">
-                <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
-                  Test Delete
-                </button>
+            <Link to={'/delete'}>
+              <div className="bg-white rounded-lg shadow-md p-6 transform hover:scale-105 transition duration-300">
+                <h2 className="text-xl font-semibold mb-4">Delete (DELETE Api)</h2>
+                <p className="text-gray-700">
+                  Remove unwanted resources with a DELETE request. Clean and maintain your database.
+                </p>
+                <div className="mt-4">
+                  <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">
+                    Test Delete
+                  </button>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
 
