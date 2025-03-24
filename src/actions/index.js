@@ -9,9 +9,10 @@ export const addUser = (user) => {
 // READ not required!
 
 // UPDATE
-export const updateUser = () => {
+export const updateUser = (user) => {
     return {
-        type: 'UPDATE_USER'
+        type: 'UPDATE_USER',
+        payload: user
     }
 }
 
