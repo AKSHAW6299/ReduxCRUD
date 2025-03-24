@@ -1,7 +1,15 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
+import { addUser, deleteUser, updateUser } from "../../actions";
+import { useDispatch } from "react-redux";
+
+
+
 
 function Home() {
+
+  const dispatch = useDispatch();
+
 
   // Initial Values
   const initialValues = {
@@ -13,7 +21,8 @@ function Home() {
   // Form Submit Handler
   const handleSubmit = (values) => {
     console.log('Form data :', values);
-
+    dispatch(addUser(values))
+    
   };
 
   return (

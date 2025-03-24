@@ -1,8 +1,8 @@
 // CREATE
-export const addUser = () => {
+export const addUser = (user) => {
     return {
         type: 'ADD_USER',
-
+        payload: user
     }
 }
 
@@ -16,8 +16,9 @@ export const updateUser = () => {
 }
 
 // DELETE
-export const deleteUser = () => {
+export const deleteUser = (id) => {
     return {
-        type: 'DELETE_USER'
+        type: 'DELETE_USER',
+        payload: id
     }
 }
