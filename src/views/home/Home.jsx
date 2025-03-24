@@ -1,33 +1,25 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
-import { addUser, deleteUser, updateUser } from "../../actions";
+import { addUser, deleteUser } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 
-
-
-
 function Home() {
-
   const dispatch = useDispatch();
-
-  const userData = useSelector((state) => state.users.users)
-  console.log('Added user data :', userData);
-
-
-
+  const userData = useSelector((state) => state.users.users);
+  console.log("Added user data :", userData);
 
   // Initial Values
   const initialValues = {
-    userId: '',
-    title: '',
-    body: '',
+    userId: "",
+    title: "",
+    body: "",
   };
 
   // Form Submit Handler
-  const handleSubmit = (values) => {
-    console.log('Form data :', values);
-    dispatch(addUser(values))
-
+  const handleSubmit = (values, { resetForm }) => {
+    console.log("Form data :", values);
+    dispatch(addUser(values));
+    resetForm(); // Reset the form after submission
   };
 
   return (
@@ -36,29 +28,31 @@ function Home() {
 
       {/* Form */}
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form className="space-y-4">
-          <Field
-            name="userId"
-            placeholder="User ID"
-            className="w-full p-2 border rounded-md"
-          />
-          <Field
-            name="title"
-            placeholder="Title"
-            className="w-full p-2 border rounded-md"
-          />
-          <Field
-            name="body"
-            placeholder="Body"
-            className="w-full p-2 border rounded-md"
-          />
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
-          >
-            Add User
-          </button>
-        </Form>
+        {({ resetForm }) => (
+          <Form className="space-y-4">
+            <Field
+              name="userId"
+              placeholder="User ID"
+              className="w-full p-2 border rounded-md"
+            />
+            <Field
+              name="title"
+              placeholder="Title"
+              className="w-full p-2 border rounded-md"
+            />
+            <Field
+              name="body"
+              placeholder="Body"
+              className="w-full p-2 border rounded-md"
+            />
+            <button
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
+            >
+              Add User
+            </button>
+          </Form>
+        )}
       </Formik>
 
       {/* User List */}
@@ -67,7 +61,7 @@ function Home() {
           <li
             key={user.id}
             className="flex justify-between items-center bg-gray-100 p-2 my-2 rounded-md"
-          > 
+          >
             <span>{user.id}</span>
             <span>{user.userId}</span>
             <span>{user.title}</span>
