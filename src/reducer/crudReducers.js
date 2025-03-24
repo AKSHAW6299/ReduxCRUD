@@ -18,7 +18,7 @@ const userCrudReducer = (state = initialState, action) => {
         // case 'UPDATE_USER':
 
         case 'DELETE_USER':
-            const newUsers = state.users.filter((e) => e.id !== action.id)
+            const newUsers = state.users.filter((e) => e.id !== action.payload)
             return {
                 ...state,
                 users: newUsers
