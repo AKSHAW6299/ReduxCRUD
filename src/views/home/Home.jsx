@@ -5,8 +5,9 @@ function Home() {
 
   // Initial Values
   const initialValues = {
-    firstName: "",
-    lastName: "",
+    userId: '',
+    title: '',
+    body: '',
   };
 
   // Form Submit Handler
@@ -23,13 +24,18 @@ function Home() {
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         <Form className="space-y-4">
           <Field
-            name="firstName"
-            placeholder="First Name"
+            name="userId"
+            placeholder="User ID"
             className="w-full p-2 border rounded-md"
           />
           <Field
-            name="lastName"
-            placeholder="Last Name"
+            name="title"
+            placeholder="Title"
+            className="w-full p-2 border rounded-md"
+          />
+          <Field
+            name="body"
+            placeholder="Body"
             className="w-full p-2 border rounded-md"
           />
           <button
