@@ -67,7 +67,8 @@ function Home() {
           <li
             key={user.id}
             className="flex justify-between items-center bg-gray-100 p-2 my-2 rounded-md"
-          >
+          > 
+            <span>{user.id}</span>
             <span>{user.userId}</span>
             <span>{user.title}</span>
             <span>{user.body}</span>
