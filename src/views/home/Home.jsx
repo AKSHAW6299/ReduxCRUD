@@ -37,9 +37,12 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+    <div className="min-h-screen bg-gray-100 p-4">
+
+      <h2>Redux CRUD</h2>
+
       {/* Form Section */}
-      <div className="w-full max-w-4xl bg-white p-6 shadow-md rounded-md">
+      <div className="max-w-4xl mx-auto bg-white p-4 rounded-md">
         <h2 className="text-xl font-semibold text-gray-700 text-center mb-4">
           {editMode ? "Edit User" : "Add User"}
         </h2>
@@ -50,16 +53,16 @@ function Home() {
           onSubmit={handleSubmit}
         >
           <Form className="grid grid-cols-3 gap-3">
-            <Field name="userId" placeholder="User ID" className="p-2 border rounded-md focus:ring focus:ring-blue-300" />
-            <Field name="title" placeholder="Title" className="p-2 border rounded-md focus:ring focus:ring-blue-300" />
-            <Field name="body" placeholder="Body" className="p-2 border rounded-md focus:ring focus:ring-blue-300" />
-            <button type="submit" className="col-span-3 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
+            <Field name="userId" placeholder="User ID" className="p-2 border rounded-md" />
+            <Field name="title" placeholder="Title" className="p-2 border rounded-md" />
+            <Field name="body" placeholder="Body" className="p-2 border rounded-md" />
+            <button type="submit" className="col-span-3 bg-blue-500 text-white py-2 rounded-md">
               {editMode ? "Update User" : "Add User"}
             </button>
             {editMode && (
               <button
                 type="button"
-                className="col-span-3 bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600 transition"
+                className="col-span-3 bg-gray-500 text-white py-2 rounded-md"
                 onClick={() => {
                   setEditMode(false);
                   setEditUser(null);
@@ -72,37 +75,37 @@ function Home() {
         </Formik>
       </div>
 
-      {/* User List Table */}
+      {/* Full-Width User List Table */}
       <div className="w-full mt-6">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left border border-gray-300">
+          <table className="w-full border-collapse border border-gray-300 bg-white">
             <thead className="bg-gray-200">
               <tr>
-                <th className="px-4 py-2 border">ID</th>
-                <th className="px-4 py-2 border">User ID</th>
-                <th className="px-4 py-2 border">Title</th>
-                <th className="px-4 py-2 border">Body</th>
-                <th className="px-4 py-2 border">Actions</th>
+                <th className="p-2 border">ID</th>
+                <th className="p-2 border">User ID</th>
+                <th className="p-2 border">Title</th>
+                <th className="p-2 border">Body</th>
+                <th className="p-2 border">Actions</th>
               </tr>
             </thead>
             <tbody>
               {userData.length > 0 ? (
-                userData.map((user) => (
-                  <tr key={user.id} className="even:bg-gray-100 hover:bg-gray-200">
-                    <td className="px-4 py-2 border">{user.id}</td>
-                    <td className="px-4 py-2 border">{user.userId}</td>
-                    <td className="px-4 py-2 border">{user.title}</td>
-                    <td className="px-4 py-2 border">{user.body}</td>
-                    <td className="px-4 py-2 border text-center flex space-x-2">
+                userData.map((user, index) => (
+                  <tr key={user.id} className="even:bg-gray-100">
+                    <td className="p-2 border text-center">{index + 1}</td>
+                    <td className="p-2 border">{user.userId}</td>
+                    <td className="p-2 border">{user.title}</td>
+                    <td className="p-2 border">{user.body}</td>
+                    <td className="p-2 border flex justify-center space-x-2">
                       <button
                         onClick={() => handleEdit(user)}
-                        className="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition"
+                        className="bg-yellow-500 text-white px-3 py-1 rounded-md"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => dispatch(deleteUser(user.id))}
-                        className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition"
+                        className="bg-red-500 text-white px-3 py-1 rounded-md"
                       >
                         Delete
                       </button>
@@ -111,7 +114,7 @@ function Home() {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="px-4 py-2 border text-center text-gray-500">
+                  <td colSpan="5" className="p-2 border text-center text-gray-500">
                     No users added yet.
                   </td>
                 </tr>
