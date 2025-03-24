@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from "formik";
 import { addUser, deleteUser, updateUser } from "../../actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
@@ -10,19 +10,24 @@ function Home() {
 
   const dispatch = useDispatch();
 
+  const userData = useSelector((state) => state.users.users)
+  console.log('Added user data :', userData);
+
+
+
 
   // Initial Values
   const initialValues = {
-    userId: 'a',
-    title: 'b',
-    body: 'c',
+    userId: '',
+    title: '',
+    body: '',
   };
 
   // Form Submit Handler
   const handleSubmit = (values) => {
     console.log('Form data :', values);
     dispatch(addUser(values))
-    
+
   };
 
   return (
@@ -57,13 +62,15 @@ function Home() {
       </Formik>
 
       {/* User List */}
-      {/* <ul className="mt-4">
-        {users.map((user) => (
+      <ul className="mt-4">
+        {userData.map((user) => (
           <li
             key={user.id}
             className="flex justify-between items-center bg-gray-100 p-2 my-2 rounded-md"
           >
-            <span>{user.firstName} {user.lastName}</span>
+            <span>{user.userId}</span>
+            <span>{user.title}</span>
+            <span>{user.body}</span>
             <button
               onClick={() => dispatch(deleteUser(user.id))}
               className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
@@ -72,7 +79,7 @@ function Home() {
             </button>
           </li>
         ))}
-      </ul> */}
+      </ul>
     </div>
   );
 }
