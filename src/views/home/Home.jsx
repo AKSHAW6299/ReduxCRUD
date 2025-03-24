@@ -1,86 +1,63 @@
-import React, { useEffect, useState } from 'react';
+import React from "react";
+import { Formik, Form, Field } from "formik";
 
 function Home() {
 
+  // Initial Values
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+  };
+
+  // Form Submit Handler
+  const handleSubmit = (values) => {
+    console.log('Form data :', values);
+
+  };
+
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-4">Basic CRUD</h1>
+    <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+      <h2 className="text-center text-2xl font-semibold mb-4">User Form</h2>
 
-      <div className="mb-4 flex space-x-2 gap-4">
-        <div className="mb-2 flex-1">
-          <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name</label>
-          <input
-            type="text"
-            id="firstName"
+      {/* Form */}
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        <Form className="space-y-4">
+          <Field
+            name="firstName"
             placeholder="First Name"
-            className="mt-1 p-2 border rounded w-full"
-          // onChange={(e) => setFirstName(e.target.value)}
-          // value={firstName}
+            className="w-full p-2 border rounded-md"
           />
-        </div>
-        <div className="mb-2 flex-1">
-          <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
+          <Field
+            name="lastName"
             placeholder="Last Name"
-            className="mt-1 p-2 border rounded w-full"
-          // onChange={(e) => setLastName(e.target.value)}
-          // value={lastName}
+            className="w-full p-2 border rounded-md"
           />
-        </div>
-        <div className="mb-2 flex-1">
-          <label htmlFor="age" className="block text-sm font-medium text-gray-700">Age</label>
-          <input
-            type="text"
-            id="age"
-            placeholder="Age"
-            className="mt-1 p-2 border rounded w-full"
-          // onChange={(e) => setAge(e.target.value)}
-          // value={age}
-          />
-        </div>
-
-
-
-        <div className='flex-1 mt-8'>
           <button
-            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-2 rounded mr-2"
-          // onClick={() => handleUpdate()}
+            type="submit"
+            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600"
           >
-            Update
+            Add User
           </button>
-          <button
-            className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-2 rounded mr-2"
-          // onClick={(e) => handleSave(e)}
+        </Form>
+      </Formik>
+
+      {/* User List */}
+      {/* <ul className="mt-4">
+        {users.map((user) => (
+          <li
+            key={user.id}
+            className="flex justify-between items-center bg-gray-100 p-2 my-2 rounded-md"
           >
-            Save
-          </button>
-          <button
-            className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-1 px-2 rounded"
-          // onClick={() => handleClear()}
-          >
-            Clear
-          </button>
-
-        </div>
-      </div>
-
-
-      <hr />
-      <table className="table-auto w-full border-collapse">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="px-4 py-2 border">ID</th>
-            <th className="px-4 py-2 border">User ID</th>
-            <th className="px-4 py-2 border">First Name</th>
-            <th className="px-4 py-2 border">Last Name</th>
-            <th className="px-4 py-2 border">Age</th>
-            <th className="px-4 py-2 border">Actions</th>
-          </tr>
-        </thead>
-
-      </table>
+            <span>{user.firstName} {user.lastName}</span>
+            <button
+              onClick={() => dispatch(deleteUser(user.id))}
+              className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600"
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul> */}
     </div>
   );
 }

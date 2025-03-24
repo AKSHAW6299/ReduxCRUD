@@ -1,28 +1,23 @@
 // CREATE
-export const createData = () => {
+export const addUser = () => {
     return {
-        type: 'CREATE',
+        type: 'ADD_USER',
 
     }
 }
 
+// READ not required!
+
 // UPDATE
-export const updateData = () => {
+export const updateUser = () => {
     return {
-        type: 'UPDATE'
+        type: 'UPDATE_USER'
     }
 }
 
 // DELETE
-export const deleteData = () => {
+export const deleteUser = () => {
     return {
-        type: 'DELETE'
-    }
-}
-
-// RESET
-export const resetData = () => {
-    return {
-        type: 'RESET'
+        type: 'DELETE_USER'
     }
 }
